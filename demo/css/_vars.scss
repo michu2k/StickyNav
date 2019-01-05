@@ -1,0 +1,17 @@
+// Colors
+$color-white: #fff;
+$color-white-dark: darken($color-white, 25%);
+$color-grey: #aaa;
+$color-black: #24252A;
+$color-black-light: lighten($color-black, 2%);
+$color-black-lightest: lighten($color-black, 4%);
+$color-purple: #7245d9;
+$color-purple-dark: darken($color-purple, 6%);
+
+// Font weights
+$weight-bold: 700;
+$weight-semi-bold: 600;
+$weight-regular: 400;
+
+// Font
+$font: ('Montserrat', 'Arial', sans-serif);

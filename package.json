@@ -1,0 +1,34 @@
+{
+  "name": "stickynav-js",
+  "version": "1.0.0",
+  "description": "Make the navbar sticky when scrolling the page",
+  "main": "dist/stickyNav.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michu2k/StickyNav.git"
+  },
+  "keywords": [
+    "sticky",
+    "stickynav",
+    "javascript",
+    "navigation"
+  ],
+  "author": "Michał Strumpf",
+  "homepage": "https://github.com/michu2k/StickyNav#readme",
+  "bugs": {
+    "url": "https://github.com/michu2k/StickyNav/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Make the navbar sticky when scrolling the page">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700"> 
+    <link rel="stylesheet" href="./css/main.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <title>StickyNav.js Demo</title>
+</head>
+<body>
+
+    <header class="l-container l-header">
+        <div class="header--inner">
+            <h1 class="header--title">StickyNav.js<span class="header--version">v1.0.0</span></h1>
+            <h2 class="header--desc">Easy to configure, lightweight script for sticky navigation created in vanilla javascript, with no dependencies.</h2>
+
+            <div class="header--btn-container">
+                <a href="https://github.com/michu2k/StickyNav/archive/master.zip" class="header--btn">Download files</a>
+                <a href="https://www.npmjs.com/package/stickynav-js" class="header--btn header--btn-small"><span class="btn--name">NPM</span></a>
+            </div>
+
+            <p class="header--scroll">
+                <span class="scroll--bold">Scroll Down</span>
+                and look at the navigation
+                <span class="scroll--icon fas fa-sort-down"></span>
+            </p>
+        </div>
+    </header>
+
+    <nav class="l-navbar" id="navbar">
+        <div class="navbar--inner">
+            <div class="navbar--mobile-btn" id="mobile-btn">
+                <span class="btn--icon-bar"></span>
+                <span class="btn--icon-bar"></span>
+                <span class="btn--icon-bar"></span>
+                <span class="sr-only">Show Navigation</span>
+            </div>
+
+            <ul class="navbar--menu" id="navbar-menu">
+                <li class="navbar--item">
+                    <a href="https://github.com/michu2k/StickyNav" class="navbar--link"><span class="navbar--icon fab fa-github"></span>Github Page</a>
+                </li>
+                <li class="navbar--item">
+                    <a href="https://github.com/michu2k/StickyNav#api" class="navbar--link"><span class="navbar--icon fas fa-file-alt"></span>API</a>
+                </li>
+                <li class="navbar--item">
+                    <a href="https://github.com/michu2k/StickyNav#usage" class="navbar--link"><span class="navbar--icon fas fa-code"></span>Usage</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="l-container l-main">
+        <section class="section">
+            <h3 class="section--heading">Section One</h3>
+            <p class="section--content">This is an example text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus pellentesque ligula in dignissim. Mauris fermentum scelerisque elit sit amet consectetur. Fusce laoreet lacus laoreet est porta, nec consectetur risus suscipit. Ut interdum purus sed porta tristique. Nam sed enim in quam ullamcorper malesuada. Ut suscipit eget risus venenatis ultricies. Fusce ut venenatis erat, et finibus mi. Sed augue est, egestas et maximus finibus, cursus et massa. Integer sagittis turpis quis nunc ultricies, id iaculis arcu lobortis. Sed metus tellus, pretium id ante nec, ullamcorper scelerisque diam. Quisque porta metus eu hendrerit ultrices. Cras gravida dictum quam id ultrices. </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section--heading">Section Two</h3>
+            <p class="section--content">Maecenas feugiat maximus ligula in luctus. Donec venenatis laoreet nunc, non tristique sapien aliquam vel. Aenean pellentesque justo a libero convallis maximus. Fusce metus ante, congue in eros tincidunt, cursus pharetra odio. Donec et massa at ligula varius venenatis. Nam efficitur risus sapien, gravida ullamcorper ex aliquet et. Nullam non nisl urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section--heading">Section Three</h3>
+            <p class="section--content">Nullam hendrerit scelerisque nisl non finibus. Phasellus id condimentum sapien, nec sodales risus. Fusce semper tempus feugiat. Aliquam ut lorem quis augue maximus interdum ac ac metus. Vestibulum eget quam et tortor luctus sodales id id nulla. In ornare tristique dapibus. Ut at erat at nibh congue sodales nec vitae metus. Vivamus pellentesque elementum felis, at tincidunt mauris. Etiam ac pretium justo. Sed id gravida justo. Sed eu aliquet metus. Nullam ut risus et purus efficitur scelerisque. Quisque quis imperdiet libero, in facilisis odio. </p>
+        </section>
+    </main>
+
+    <footer class="l-container l-footer">
+        <p class="footer--copyright">Copyright © 2019</p>
+        <p class="footer--author">Made with <span class="footer--icon fas fa-heart"></span> by <a href="http://michu2k.pl" class="footer--link" target="_blank" rel="noopener noreferrer">Michał Strumpf</a></p>
+    </footer>
+
+    <script src="../dist/stickyNav.min.js"></script>
+    <script>
+        // Mobile menu
+        var menuBtn = document.getElementById('mobile-btn');
+        var menuMenu = document.getElementById('navbar-menu');
+
+        menuBtn.addEventListener('click', function() {
+            if (menuBtn.classList.contains('is-toggled')) {
+                menuBtn.classList.remove('is-toggled');
+                menuMenu.classList.remove('is-toggled');
+            } else {
+                menuBtn.classList.add('is-toggled');
+                menuMenu.classList.add('is-toggled');
+            }
+        });
+
+        // Sticky menu
+        var menu = document.getElementById('navbar');
+        menu.stickyNav();
+    </script>
+</body>
+</html>

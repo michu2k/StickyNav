@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+// Body
+body {
+    font-family: $font;
+    font-weight: $weight-regular;
+    background-color: $color-black-lightest;
+    margin: 0;
+    padding: 0;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+// List
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+// List item
+li {
+    list-style: none;
+}
+
+// Links
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
