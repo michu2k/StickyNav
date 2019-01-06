@@ -1,7 +1,7 @@
 /*!
- * StickyNav v1.0.0
+ * StickyNav v1.0.1
  * Make the navbar sticky when scrolling the page
- * https://github.com/michu2k/Accordion
+ * https://github.com/michu2k/StickyNav
  *
  * Copyright 2019 Michał Strumpf
  * Published under MIT License
@@ -31,15 +31,29 @@
 
         // Extend options 
         let options = extendDefaults(defaults, properties);
-        // Create extra hidden element
+        
         let hiddenEl = createHiddenElement();
-
         let edge = getOffset();
         let applied = 0;
 
         // On scroll
         // Toogle sticky class
         window.addEventListener('scroll', () => {
+            toggleSticky();
+        });
+
+        // On resize
+        // Update offset and toggle sticky
+        window.addEventListener('resize', () => {
+            removeSticky();
+            edge = getOffset();
+            toggleSticky();
+        });
+
+        /**
+         * Toogle sticky functions
+         */
+        function toggleSticky() {
             if (!applied) {
                 if (window.pageYOffset >= edge) {
                     addSticky();
@@ -49,18 +63,7 @@
                     removeSticky();
                 }
             }
-        });
-
-        // On resize
-        // Update offset
-        window.addEventListener('resize', () => {
-            removeSticky();
-            edge = getOffset();
-
-            if (window.pageYOffset >= edge) {
-                addSticky();
-            }
-        });
+        }
 
         /**
          * Add sticky class to the element
@@ -86,12 +89,7 @@
          * @return {number} offset = offset value
          */
         function getOffset() {
-            let offset = element.offsetTop;
-
-            // Add extra offset
-            if (options.extraOffset !== 0) {
-                offset = offset + options.extraOffset;
-            }
+            let offset = element.offsetTop + options.extraOffset;
 
             // Custom breakpoint
             if (options.customBreakPoint) {

@@ -96,7 +96,7 @@ a:hover, a:focus {
   font-weight: 700;
   font-size: 12px;
   color: #fff;
-  background-color: #7245d9;
+  background-color: #6930d7;
   border-radius: 4px;
   padding: 4px 8px;
   display: inline-block;
@@ -121,27 +121,27 @@ a:hover, a:focus {
 .header--btn {
   font-size: 13px;
   color: #fff;
-  background-color: #7245d9;
+  background-color: #6930d7;
   padding: 14px 22px;
   margin: 15px 2px 0 2px;
   display: inline-block;
-  border-bottom: 3px solid #5f2cd4;
+  border-bottom: 3px solid #5724ba;
   -webkit-transition: 0.3s background-color ease;
   transition: 0.3s background-color ease;
 }
 
 .header--btn:hover, .header--btn:focus {
-  background-color: #5f2cd4;
+  background-color: #5724ba;
 }
 
 .header--btn-small {
   color: #24252A;
   background-color: #fff;
-  border-bottom: 3px solid #bfbfbf;
+  border-bottom: 3px solid #c7c7c7;
 }
 
 .header--btn-small:hover, .header--btn-small:focus {
-  background-color: #bfbfbf;
+  background-color: #c7c7c7;
 }
 
 .header--btn-container {
@@ -204,11 +204,11 @@ a:hover, a:focus {
 }
 
 .navbar--link:hover, .navbar--link:focus {
-  color: #7245d9;
+  color: #6930d7;
 }
 
 .navbar--icon {
-  font-size: 15px;
+  font-size: 16px;
   color: #fff;
   margin-right: 10px;
 }
@@ -274,7 +274,7 @@ a:hover, a:focus {
 }
 
 .footer--icon {
-  color: #7245d9;
+  color: #6930d7;
   margin-left: 2px;
   margin-right: 2px;
 }
