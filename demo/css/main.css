@@ -46,7 +46,7 @@ a:hover, a:focus {
 }
 
 .l-header {
-  height: 580px;
+  height: 550px;
   background-color: #292a2f;
   text-align: center;
   display: -webkit-box;
@@ -68,13 +68,13 @@ a:hover, a:focus {
 }
 
 .l-main {
-  margin-top: 50px;
+  margin-top: 60px;
   display: block;
 }
 
 .l-footer {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
@@ -154,6 +154,7 @@ a:hover, a:focus {
 }
 
 .header--scroll {
+  font-size: 14px;
   color: #fff;
   margin-top: 50px;
 }
@@ -164,7 +165,7 @@ a:hover, a:focus {
 }
 
 .header--scroll .scroll--icon {
-  font-size: 25px;
+  font-size: 24px;
   display: block;
 }
 
@@ -247,7 +248,7 @@ a:hover, a:focus {
 }
 
 .section {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 .section--heading {
@@ -258,7 +259,7 @@ a:hover, a:focus {
 
 .section--content {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 26px;
   color: #aaa;
 }
 
@@ -393,5 +394,8 @@ a:hover, a:focus {
   }
   .header--version {
     bottom: -8px;
+  }
+  .section {
+    padding: 150px 0;
   }
 }

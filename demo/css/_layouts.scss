@@ -13,7 +13,7 @@
 
 // Header
 .l-header {
-    height: 580px;
+    height: 550px;
     background-color: $color-black-light;
     text-align: center;
     display: flex;
@@ -28,7 +28,7 @@
 
 // Main
 .l-main {
-    margin-top: 50px;
+    margin-top: 60px;
     display: block;
 
     @extend .l-fullwidth;
@@ -37,7 +37,7 @@
 // Footer
 .l-footer {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 100px;
     margin-bottom: 50px;
 
     @extend .l-fullwidth;
