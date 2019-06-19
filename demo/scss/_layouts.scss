@@ -4,41 +4,40 @@
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-}
-
-// Container max width
-.l-fullwidth {
-    max-width: 960px;
+    max-width: 1100px;
 }
 
 // Header
 .l-header {
-    height: 550px;
-    background-color: $color-black-light;
+    @extend .l-container;
+
+    padding: 120px 15px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 // Navbar
 .l-navbar {
     position: relative;
+    min-height: 80px;
+    background-color: $color-black;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: hidden;
 }
 
 // Main
 .l-main {
+    @extend .l-container;
+
     margin-top: 60px;
     display: block;
-
-    @extend .l-fullwidth;
 }
 
 // Footer
 .l-footer {
+    @extend .l-container;
+
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
-
-    @extend .l-fullwidth;
 }

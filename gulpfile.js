@@ -9,7 +9,7 @@ const rename       = require('gulp-rename');
 
 // Config
 const config = {
-    srcCSS: 'demo/css/**/*.scss',
+    srcCSS: 'demo/scss/**/*.scss',
     distCSS: 'demo/css',
     srcJS: 'src/**/*.js',
     distJS: 'dist'
@@ -33,7 +33,9 @@ function reload(done) {
 // Javascript
 function compileJs() {
     return gulp.src(config.srcJS)
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
         .on('error', function (err) {
             console.log(err.toString());
             this.emit('end');
@@ -49,7 +51,6 @@ function compileSass() {
         .pipe(sass({outputStyle: 'expanded'})
         .on('error', sass.logError))
         .pipe(autoprefixer({cascade: false}))
-        .pipe(gulp.dest(config.distCSS))
         .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(config.distCSS));
