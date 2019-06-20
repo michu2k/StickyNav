@@ -1,14 +1,8 @@
 // Header
 .header {
-    // Inner container
-    &--inner {
-        width: 100%;
-        max-width: 950px;
-    }
-
     // Title
     &--title {
-        font-weight: $weight-bold;
+        font-weight: $font-bold;
         font-size: 36px;
         color: $color-white;
         display: inline-block;
@@ -18,7 +12,7 @@
 
     // Version tag
     &--version {
-        font-weight: $weight-bold;
+        font-weight: $font-bold;
         font-size: 12px;
         color: $color-white;
         background-color: $color-purple;
@@ -31,27 +25,25 @@
         animation: rotate 4s ease 0s infinite;
     }
 
-    // Desc
+    // Description
     &--desc {
-        font-weight: $weight-regular;
-        font-size: 13px;
+        font-weight: $font-regular;
+        font-size: 14px;
         color: $color-grey;
         line-height: 25px;
-        margin-top: 40px;
-        max-width: 560px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 50px 0;
     }
 
     // Button
     &--btn {
+        font-weight: $font-bold;
         font-size: 13px;
         color: $color-white;
         background-color: $color-purple;
-        padding: 14px 22px;
+        padding: 14px 25px;
+        border-radius: 10px;
         margin: 15px 2px 0 2px;
         display: inline-block;
-        border-bottom: 3px solid $color-purple-dark;
         transition: 0.3s background-color ease;
 
         &:hover,
@@ -63,23 +55,11 @@
         &-small {
             color: $color-black;
             background-color: $color-white;
-            border-bottom: 3px solid $color-white-dark;
 
             &:hover,
             &:focus {
                 background-color: $color-white-dark;
             }
-        }
-
-        // Container
-        &-container {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        // Name
-        .btn--name {
-            font-weight: $weight-bold;
         }
     }
 
@@ -90,11 +70,13 @@
         margin-top: 50px;
 
         .scroll {
+            // bold text
             &--bold {
-                font-weight: $weight-bold;
+                font-weight: $font-bold;
                 display: block;
             }
 
+            // Icon
             &--icon {
                 font-size: 24px;
                 display: block;
@@ -105,19 +87,6 @@
 
 // Navbar
 .navbar {
-    // Inner container
-    &--inner {
-        max-width: 1100px;
-        min-height: 80px;
-        background-color: $color-black;
-        border-bottom: 2px solid darken($color-black, 5%);
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        padding: 0 15px;
-        transition: 0.2s all ease;
-    }
-
     // Menu
     &--menu {
         max-width: 1070px;
@@ -134,12 +103,12 @@
 
     // Link
     &--link {
-        font-weight: $weight-semi-bold;
+        font-weight: $font-semi-bold;
         font-size: 13px;
         color: $color-grey;
         display: block;
-        padding: 10px 5px;
-        transition: 0.3s color ease;
+        padding: 15px 5px;
+        transition: 0.25s color ease;
 
         &:hover,
         &:focus {
@@ -154,36 +123,47 @@
         margin-right: 10px;
     }
 
-    // Mobile button
-    &--mobile-btn {
-        width: 36px;
-        height: 36px;
-        margin-top: 21px;
-        margin-bottom: 21px;
+    // Button
+    &--toggler {
+        width: 30px;
+        height: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
         display: block;
         cursor: pointer;
         position: relative;
+        transition: background-color .25s ease;
+        background: none;
+        border: 0;
+        padding: 0;
 
         // Bar
-        .btn--icon-bar {
-            width: 100%;
+        .toggler--bar {
+            width: 25px;
             height: 2px;
-            background-color: $color-white;
+            background-color: rgba($color-white, 1);
             display: block;
-            transition: 0.2s all ease;
-            position: absolute;
+            transition: background-color .25s ease;
+            position: relative;
 
-            &:nth-child(1) {
-                top: 5px;
+            &::before,
+            &::after {
+                content: '';
+                width: 30px;
+                height: 2px;
+                background-color: $color-white;
+                display: block;
+                position: absolute;
+                transition: transform .25s ease;
+                top: 0;
             }
 
-            &:nth-child(2) {
-                top: 17px;
-                width: 80%;
+            &::before {
+                transform: translateY(-10px);
             }
 
-            &:nth-child(3) {
-                top: 29px;
+            &::after {
+                transform: translateY(10px);
             }
         }
     }
@@ -191,12 +171,19 @@
 
 // Section
 .section {
-    padding: 80px 0;
+    padding: 90px 0;
+    margin: 50px 0;
+    text-align: center;
+
+    // Light background
+    &-light {
+        background-color: $color-black-lightest;
+    }
 
     // Heading
     &--heading {
-        font-weight: $weight-bold;
-        font-size: 24px;
+        font-weight: $font-bold;
+        font-size: 36px;
         color: $color-white;
     }
 
@@ -212,7 +199,7 @@
 .footer {
     // Copyright text
     &--copyright {
-        font-weight: $weight-bold;
+        font-weight: $font-bold;
         font-size: 14px;
         color: $color-white;
     }
@@ -232,7 +219,7 @@
 
     // Link
     &--link {
-        font-weight: $weight-semi-bold;
+        font-weight: $font-semi-bold;
         color: $color-grey;
 
         &:hover,

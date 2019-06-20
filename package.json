@@ -1,6 +1,6 @@
 {
   "name": "stickynav-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make the navbar sticky when scrolling the page",
   "main": "dist/stickyNav.min.js",
   "repository": {
@@ -20,15 +20,24 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.0.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1"
-  }
+    "gulp-uglify": "^3.0.2"
+  },
+  "browserslist": [
+    ">0.15%",
+    "not dead",
+    "firefox >= 50",
+    "chrome >= 50",
+    "opera >= 50",
+    "edge >= 12",
+    "not op_mini all"
+  ]
 }

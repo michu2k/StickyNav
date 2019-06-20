@@ -1,5 +1,5 @@
 /*!
- * StickyNav v1.0.1
+ * StickyNav v1.0.2
  * Make the navbar sticky when scrolling the page
  * https://github.com/michu2k/StickyNav
  *
@@ -29,20 +29,21 @@
             throw new Error('Sorry, looks like your browser is too old for this script :(');
         }
 
-        // Extend options 
-        let options = extendDefaults(defaults, properties);
+        // Extend options
+        for (const property in properties) {
+            defaults[property] = properties[property];
+        }
         
-        let hiddenEl = createHiddenElement();
+        const options = defaults;
+        const hiddenEl = createHiddenElement();
         let edge = getOffset();
         let applied = 0;
 
-        // On scroll
         // Toogle sticky class
         window.addEventListener('scroll', () => {
             toggleSticky();
         });
 
-        // On resize
         // Update offset and toggle sticky
         window.addEventListener('resize', () => {
             removeSticky();
@@ -51,7 +52,7 @@
         });
 
         /**
-         * Toogle sticky functions
+         * Toogle sticky
          */
         function toggleSticky() {
             if (!applied) {
@@ -86,17 +87,10 @@
 
         /**
          * Get the offset top value of the element relative to the document
-         * @return {number} offset = offset value
+         * @return {number} value = offset value
          */
         function getOffset() {
-            let offset = element.offsetTop + options.extraOffset;
-
-            // Custom breakpoint
-            if (options.customBreakPoint) {
-                offset = options.breakPointValue;
-            }
-
-            return offset;
+            return options.customBreakPoint ? options.breakPointValue : element.offsetTop + options.extraOffset;
         }
 
         /**
@@ -104,27 +98,11 @@
          * @return {object} hidden = created hidden div
          */
         function createHiddenElement() {
-            let hidden = document.createElement('div');
+            const hidden = document.createElement('div');
             hidden.style.display = 'none';
             element.parentNode.insertBefore(hidden, element);
 
             return hidden;
-        }
-
-        /** 
-         * Extend defaults
-         * @param {object} defaults = defaults options defined in script
-         * @param {object} properties = options defined by user
-         * @return {object} defaults = modified options
-         */
-        function extendDefaults(defaults, properties) {
-           if (properties != null && properties !== undefined) {
-               for (let property in properties) {
-                   defaults[property] = properties[property];
-               }
-           }
-
-           return defaults; 
         }
     };
 

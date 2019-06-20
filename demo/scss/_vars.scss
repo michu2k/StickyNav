@@ -2,16 +2,16 @@
 $color-white: #fff;
 $color-white-dark: darken($color-white, 22%);
 $color-grey: #aaa;
-$color-black: #24252A;
+$color-black: #1e1f23;
 $color-black-light: lighten($color-black, 2%);
 $color-black-lightest: lighten($color-black, 4%);
-$color-purple: #6930d7;
+$color-purple: #7f2ace;
 $color-purple-dark: darken($color-purple, 8%);
 
-// Font weights
-$weight-bold: 700;
-$weight-semi-bold: 600;
-$weight-regular: 400;
-
 // Font
-$font: ('Montserrat', 'Arial', sans-serif);
+$font-family: ('Montserrat', 'Arial', sans-serif);
+
+// Font weights
+$font-bold: 700;
+$font-semi-bold: 600;
+$font-regular: 400;
