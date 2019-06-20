@@ -3,7 +3,7 @@ Make the navbar sticky when scrolling the page <br>
 Browsers support: All modern browsers, Internet Explorer 11
 
 ## Version
-1.0.1
+1.0.2
 
 ## Installation
 
