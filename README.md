@@ -9,7 +9,7 @@ Browsers support: All modern browsers, Internet Explorer 11
 
 ###### npm
 
-Install the package & import script
+Install and import the package
 ```
 npm install stickynav-js
 ```
@@ -25,9 +25,6 @@ Note: On production use JS files only from **dist/** folder.
 ```html
 <script src="stickyNav.min.js"></script>  
 ```
-
-###### Github
-You can also download files from github.
 
 ## Usage
 On production use JS files only from **dist/** folder

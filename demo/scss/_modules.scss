@@ -40,21 +40,11 @@
     border-radius: 10px;
     margin: 15px 2px 0 2px;
     display: inline-block;
-    transition: 0.3s background-color ease;
+    transition: background-color .25s ease;
 
     &:hover,
     &:focus {
       background-color: $color-purple-dark;
-    }
-
-    &-small {
-      color: $color-black;
-      background-color: $color-white;
-
-      &:hover,
-      &:focus {
-        background-color: $color-white-dark;
-      }
     }
   }
 
@@ -70,8 +60,10 @@
       }
 
       &--icon {
-        font-size: 24px;
+        width: 24px;
+        height: 24px;
         display: block;
+        margin: 10px auto 0 auto;
       }
     }
   }
@@ -95,9 +87,10 @@
     font-weight: $font-semi-bold;
     font-size: 13px;
     color: $color-grey;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 15px 5px;
-    transition: 0.25s color ease;
+    transition: color .25s ease;
 
     &:hover,
     &:focus {
@@ -106,51 +99,52 @@
   }
 
   &--icon {
-    font-size: 16px;
-    color: $color-white;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
   }
+}
 
-  &--toggler {
-    width: 30px;
-    height: 30px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+// Toggler
+.toggler {
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  transition: background-color .25s ease;
+  background: none;
+  border: 0;
+  padding: 0;
+
+  &--bar {
+    width: 25px;
+    height: 2px;
+    background-color: rgba($color-white, 1);
     display: block;
-    cursor: pointer;
-    position: relative;
     transition: background-color .25s ease;
-    background: none;
-    border: 0;
-    padding: 0;
+    position: relative;
 
-    .toggler--bar {
-      width: 25px;
+    &::before,
+    &::after {
+      content: '';
+      width: 30px;
       height: 2px;
-      background-color: rgba($color-white, 1);
+      background-color: $color-white;
       display: block;
-      transition: background-color .25s ease;
-      position: relative;
+      position: absolute;
+      transition: transform .25s ease;
+      top: 0;
+    }
 
-      &::before,
-      &::after {
-        content: '';
-        width: 30px;
-        height: 2px;
-        background-color: $color-white;
-        display: block;
-        position: absolute;
-        transition: transform .25s ease;
-        top: 0;
-      }
+    &::before {
+      transform: translateY(-10px);
+    }
 
-      &::before {
-        transform: translateY(-10px);
-      }
-
-      &::after {
-        transform: translateY(10px);
-      }
+    &::after {
+      transform: translateY(10px);
     }
   }
 }
@@ -160,10 +154,6 @@
   padding: 90px 0;
   margin: 50px 0;
   text-align: center;
-
-  &-light {
-    background-color: $color-black-lightest;
-  }
 
   &--heading {
     font-weight: $font-bold;
@@ -189,17 +179,23 @@
   &--author {
     color: $color-grey;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &--icon {
-    color: $color-purple;
-    margin-left: 2px;
-    margin-right: 2px;
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+    display: inline-block;
   }
 
   &--link {
     font-weight: $font-semi-bold;
     color: $color-grey;
+    margin-left: 3px;
+    display: inline-block;
 
     &:hover,
     &:focus {
