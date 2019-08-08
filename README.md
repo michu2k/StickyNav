@@ -3,7 +3,7 @@ Make the navbar sticky when scrolling the page <br>
 Browsers support: All modern browsers, Internet Explorer 11
 
 ## Version
-1.0.2
+1.0.3
 
 ## Installation
 
@@ -28,10 +28,10 @@ You can change your class name by changing `stickyClass` option
 
 ```css
 .your-navbar.is-sticky {
-    top: 0;
-    z-index: 10;
-    position: fixed;
-    /*...*/
+  top: 0;
+  z-index: 10;
+  position: fixed;
+  /*...*/
 }
 ```
 
@@ -39,27 +39,27 @@ You can change your class name by changing `stickyClass` option
 
 ```javascript
 <script>
-    var menu = document.getElementById('navbar');
-    menu.stickyNav();
+  var menu = document.getElementById('navbar');
+  menu.StickyNav();
 </script>
 ```
 
 ## API
 
 ###### Example
-yourElement.stickyNav(options)
+yourElement.StickyNav(options)
 
 * options - object (optional), script options
 
 ```javascript
 <script>
-    // Get your element
-    var menu = document.getElementById('navbar');
+  // Get your element
+  var menu = document.getElementById('navbar');
     
-    // Pass options
-    menu.stickyNav({
-        stickyClass: 'is-sticky'
-    });
+  // Pass options
+  menu.StickyNav({
+    stickyClass: 'is-sticky'
+  });
 </script>
 ```
 
