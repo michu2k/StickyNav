@@ -8,8 +8,22 @@ Browsers support: All modern browsers, Internet Explorer 11
 ## Installation
 
 ###### npm
+
+Install the package & import script
 ```
 npm install stickynav-js
+```
+
+```javascript
+import StickyNav from 'stickynav-js';
+```
+
+###### Github
+You can also download files from Github and attach them manually to your project. <br>
+Note: On production use JS files only from **dist/** folder.
+
+```html
+<script src="stickyNav.min.js"></script>  
 ```
 
 ###### Github
@@ -19,9 +33,7 @@ You can also download files from github.
 On production use JS files only from **dist/** folder
 
 ###### 1. Include script
-```html
-<script src="stickyNav.min.js"></script>  
-```
+See the section above.
 
 ###### 2. Add sticky class in your CSS
 You can change your class name by changing `stickyClass` option 
