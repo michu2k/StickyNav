@@ -1,5 +1,5 @@
 /*!
- * StickyNav v1.0.3
+ * StickyNav v1.1.0
  * Make the navbar sticky when scrolling the page
  * https://github.com/michu2k/StickyNav
  *
@@ -12,14 +12,12 @@
 
   /**
    * Core
+   * @param {string} el = DOM element in which the script will be initialized
    * @param {object} properties = options defined by user
    */
-  Object.prototype.StickyNav = function(properties) {
-    
-    if (!this.classList && typeof module == 'undefined') {
-      throw new Error('Sorry, your browser is too old for this script :(');
-    }
-    
+  const StickyNav = function(el, properties) {
+    this.el = el;
+
     // Default options
     const options = {
       stickyClass: 'is-sticky', // {string} sticky class
@@ -38,7 +36,7 @@
     // Create and add a hidden element to the DOM
     const hiddenEl = document.createElement('div');
     hiddenEl.style.display = 'none';
-    this.parentNode.insertBefore(hiddenEl, this);
+    this.el.parentNode.insertBefore(hiddenEl, this.el);
 
     /**
      * Toogle sticky
@@ -59,9 +57,9 @@
      * Add sticky class to the element
      */
     const addSticky = () => {
-      hiddenEl.style.height = `${this.offsetHeight}px`;
+      hiddenEl.style.height = `${this.el.offsetHeight}px`;
       hiddenEl.style.display = 'block';
-      this.classList.add(options.stickyClass);
+      this.el.classList.add(options.stickyClass);
       applied = 1;
     }
 
@@ -70,7 +68,7 @@
      */
     const removeSticky = () => {
       hiddenEl.style.display = 'none';
-      this.classList.remove(options.stickyClass);
+      this.el.classList.remove(options.stickyClass);
       applied = 0;
     }
 
@@ -78,20 +76,21 @@
      * Get the offset top value of the element relative to the document
      * @return {number} value = offset value
      */
-    const getOffset = () => options.customBreakPoint ? options.breakPointValue : this.offsetTop + options.extraOffset;
-    
+    const getOffset = () => options.customBreakPoint ? options.breakPointValue : this.el.offsetTop + options.extraOffset;
     let edge = getOffset();
 
+    // Scroll handler
     window.addEventListener('scroll', () => {
       toggleSticky();
     });
 
+    // Resize handler
     window.addEventListener('resize', () => {
       removeSticky();
       edge = getOffset();
       toggleSticky();
     });
-  };
+  }
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = StickyNav;
