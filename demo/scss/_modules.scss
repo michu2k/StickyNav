@@ -1,230 +1,205 @@
 // Header
 .header {
-    // Title
-    &--title {
+  &--title {
+    font-weight: $font-bold;
+    font-size: 36px;
+    color: $color-white;
+    display: inline-block;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  &--version {
+    font-weight: $font-bold;
+    font-size: 12px;
+    color: $color-white;
+    background-color: $color-purple;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
+    right: -22px;
+    bottom: -10px;
+    position: absolute;
+    animation: rotate 4s ease 0s infinite;
+  }
+
+  &--desc {
+    font-weight: $font-regular;
+    font-size: 14px;
+    color: $color-grey;
+    line-height: 25px;
+    margin: 50px 0;
+  }
+
+  &--btn {
+    font-weight: $font-bold;
+    font-size: 13px;
+    color: $color-white;
+    background-color: $color-purple;
+    padding: 14px 25px;
+    border-radius: 10px;
+    margin: 15px 2px 0 2px;
+    display: inline-block;
+    transition: background-color .25s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $color-purple-dark;
+    }
+  }
+
+  &--scroll {
+    font-size: 14px;
+    color: $color-white;
+    margin-top: 50px;
+
+    .scroll {
+      &--bold {
         font-weight: $font-bold;
-        font-size: 36px;
-        color: $color-white;
-        display: inline-block;
-        margin-bottom: 0;
-        position: relative;
+        display: block;
+      }
+
+      &--icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        margin: 10px auto 0 auto;
+      }
     }
-
-    // Version tag
-    &--version {
-        font-weight: $font-bold;
-        font-size: 12px;
-        color: $color-white;
-        background-color: $color-purple;
-        border-radius: 4px;
-        padding: 4px 8px;
-        display: inline-block;
-        right: -22px;
-        bottom: -10px;
-        position: absolute;
-        animation: rotate 4s ease 0s infinite;
-    }
-
-    // Description
-    &--desc {
-        font-weight: $font-regular;
-        font-size: 14px;
-        color: $color-grey;
-        line-height: 25px;
-        margin: 50px 0;
-    }
-
-    // Button
-    &--btn {
-        font-weight: $font-bold;
-        font-size: 13px;
-        color: $color-white;
-        background-color: $color-purple;
-        padding: 14px 25px;
-        border-radius: 10px;
-        margin: 15px 2px 0 2px;
-        display: inline-block;
-        transition: 0.3s background-color ease;
-
-        &:hover,
-        &:focus {
-            background-color: $color-purple-dark;
-        }
-
-        // Small btn
-        &-small {
-            color: $color-black;
-            background-color: $color-white;
-
-            &:hover,
-            &:focus {
-                background-color: $color-white-dark;
-            }
-        }
-    }
-
-    // Scroll info
-    &--scroll {
-        font-size: 14px;
-        color: $color-white;
-        margin-top: 50px;
-
-        .scroll {
-            // bold text
-            &--bold {
-                font-weight: $font-bold;
-                display: block;
-            }
-
-            // Icon
-            &--icon {
-                font-size: 24px;
-                display: block;
-            }
-        }
-    }
+  }
 }
 
 // Navbar
 .navbar {
-    // Menu
-    &--menu {
-        max-width: 1070px;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: none;
+  &--menu {
+    max-width: 1070px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+  }
+
+  &--item {
+    display: block;
+  }
+
+  &--link {
+    font-weight: $font-semi-bold;
+    font-size: 13px;
+    color: $color-grey;
+    display: flex;
+    align-items: center;
+    padding: 15px 5px;
+    transition: color .25s ease;
+
+    &:hover,
+    &:focus {
+      color: $color-purple;
+    }
+  }
+
+  &--icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+// Toggler
+.toggler {
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  transition: background-color .25s ease;
+  background: none;
+  border: 0;
+  padding: 0;
+
+  &--bar {
+    width: 25px;
+    height: 2px;
+    background-color: rgba($color-white, 1);
+    display: block;
+    transition: background-color .25s ease;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 30px;
+      height: 2px;
+      background-color: $color-white;
+      display: block;
+      position: absolute;
+      transition: transform .25s ease;
+      top: 0;
     }
 
-    // Item
-    &--item {
-        display: block;
+    &::before {
+      transform: translateY(-10px);
     }
 
-    // Link
-    &--link {
-        font-weight: $font-semi-bold;
-        font-size: 13px;
-        color: $color-grey;
-        display: block;
-        padding: 15px 5px;
-        transition: 0.25s color ease;
-
-        &:hover,
-        &:focus {
-            color: $color-purple;
-        }
+    &::after {
+      transform: translateY(10px);
     }
-
-    // Icon
-    &--icon {
-        font-size: 16px;
-        color: $color-white;
-        margin-right: 10px;
-    }
-
-    // Button
-    &--toggler {
-        width: 30px;
-        height: 30px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        display: block;
-        cursor: pointer;
-        position: relative;
-        transition: background-color .25s ease;
-        background: none;
-        border: 0;
-        padding: 0;
-
-        // Bar
-        .toggler--bar {
-            width: 25px;
-            height: 2px;
-            background-color: rgba($color-white, 1);
-            display: block;
-            transition: background-color .25s ease;
-            position: relative;
-
-            &::before,
-            &::after {
-                content: '';
-                width: 30px;
-                height: 2px;
-                background-color: $color-white;
-                display: block;
-                position: absolute;
-                transition: transform .25s ease;
-                top: 0;
-            }
-
-            &::before {
-                transform: translateY(-10px);
-            }
-
-            &::after {
-                transform: translateY(10px);
-            }
-        }
-    }
+  }
 }
 
 // Section
 .section {
-    padding: 90px 0;
-    margin: 50px 0;
-    text-align: center;
+  padding: 90px 0;
+  margin: 50px 0;
+  text-align: center;
 
-    // Light background
-    &-light {
-        background-color: $color-black-lightest;
-    }
+  &--heading {
+    font-weight: $font-bold;
+    font-size: 36px;
+    color: $color-white;
+  }
 
-    // Heading
-    &--heading {
-        font-weight: $font-bold;
-        font-size: 36px;
-        color: $color-white;
-    }
-
-    // Content
-    &--content {
-        font-size: 14px;
-        line-height: 26px;
-        color: $color-grey;
-    }
+  &--content {
+    font-size: 14px;
+    line-height: 26px;
+    color: $color-grey;
+  }
 }
 
 // Footer
 .footer {
-    // Copyright text
-    &--copyright {
-        font-weight: $font-bold;
-        font-size: 14px;
-        color: $color-white;
-    }
+  &--copyright {
+    font-weight: $font-bold;
+    font-size: 14px;
+    color: $color-white;
+  }
 
-    // Author
-    &--author {
-        color: $color-grey;
-        font-size: 12px;
-    }
+  &--author {
+    color: $color-grey;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    // Icon
-    &--icon {
-        color: $color-purple;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
+  &--icon {
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+    display: inline-block;
+  }
 
-    // Link
-    &--link {
-        font-weight: $font-semi-bold;
-        color: $color-grey;
+  &--link {
+    font-weight: $font-semi-bold;
+    color: $color-grey;
+    margin-left: 3px;
+    display: inline-block;
 
-        &:hover,
-        &:focus {
-            color: $color-white;
-        }
+    &:hover,
+    &:focus {
+      color: $color-white;
     }
+  }
 }

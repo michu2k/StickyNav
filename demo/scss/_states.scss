@@ -1,91 +1,97 @@
-// Navbar sticky class
 .l-navbar.is-sticky { 
-    z-index: 10;
-    top: 0;
-    width: 100%;
-    position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  position: fixed;
 }
 
-// Navbar menu totgled
 .navbar--menu.is-toggled {
-    display: block;
+  display: block;
 }
 
-// Mobile button toggled
-.navbar--toggler.is-toggled {
-    // Bar
-    .toggler--bar {
-        background-color: rgba(0, 0, 0, 0);
+.toggler.is-toggled {
+  .toggler--bar {
+    background-color: rgba(32, 28, 28, 0);
 
-        &::before {
-            transform: translateY(0) rotate(45deg);
-        }
-
-        &::after {
-            transform: translateY(0) rotate(-45deg);
-        }
+    &::before {
+      transform: translateY(0) rotate(45deg);
     }
+
+    &::after {
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+}
+
+.section.is-light {
+  background-color: $color-black-lightest;
+}
+
+.header--btn.is-small {
+  color: $color-black;
+  background-color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: $color-white-dark;
+  }
 }
 
 // Keyframes
 @keyframes rotate {
-    80%,
-    100% {
-        transform: rotate(0deg);
-    }
+  80%,
+  100% {
+    transform: rotate(0deg);
+  }
 
-    85%,
-    95% {
-        transform: rotate(4deg);
-    }
+  85%,
+  95% {
+    transform: rotate(4deg);
+  }
 
-    90% {
-        transform: rotate(-4deg);
-    }
+  90% {
+    transform: rotate(-4deg);
+  }
 }
 
 // Media queries
 // (Min-width: 480px)
 @media (min-width: 480px) {
-    // Navbar
-    .navbar {
-        // Menu
-        &--menu {
-            height: 80px;
-            display: flex;
-            align-items: center;
-        }
-
-        // Item
-        &--item {
-            display: inline-block;
-            margin-right: 40px;
-        }
-
-        // Button
-        &--toggler {
-            display: none;
-        }
+  // Navbar
+  .navbar {
+    &--menu {
+      height: 80px;
+      display: flex;
+      align-items: center;
     }
+
+    &--item {
+      display: inline-block;
+      margin-right: 40px;
+    }
+  }
+
+  // Toggler
+  .toggler {
+    display: none;
+  }
 }
 
 // (Min-width: 768px)
 @media (min-width: 768px) {
-    // Header
-    .header {
-        // Title
-        &--title {
-            font-size: 48px;
-        }
-
-        // Version tag
-        &--version {
-            bottom: -8px;
-        }
+  // Header
+  .header {
+    &--title {
+      font-size: 48px;
     }
 
-    // Section
-    .section {
-        padding: 150px 0;
+    &--version {
+      bottom: -8px;
     }
+  }
+
+  // Section
+  .section {
+    padding: 150px 0;
+  }
 }

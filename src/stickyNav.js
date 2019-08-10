@@ -1,5 +1,5 @@
 /*!
- * StickyNav v1.0.2
+ * StickyNav v1.1.0
  * Make the navbar sticky when scrolling the page
  * https://github.com/michu2k/StickyNav
  *
@@ -8,104 +8,93 @@
  */
 (function() {
 
-    'use strict';
+  'use strict';
+
+  /**
+   * Core
+   * @param {string} el = DOM element in which the script will be initialized
+   * @param {object} properties = options defined by user
+   */
+  const StickyNav = function(el, properties) {
+    this.el = el;
+
+    // Default options
+    const options = {
+      stickyClass: 'is-sticky', // {string} sticky class
+      customBreakPoint: false, // {boolean} enable custom breakpoint for navbar
+      breakPointValue: 200, // {number} navbar breakpoint value in pixels
+      extraOffset: 0 // {number} add extra offset from the top
+    };
+    
+    let applied = 0;
+
+    // Extend options
+    for (const property in properties) {
+      options[property] = properties[property];
+    }
+      
+    // Create and add a hidden element to the DOM
+    const hiddenEl = document.createElement('div');
+    hiddenEl.style.display = 'none';
+    this.el.parentNode.insertBefore(hiddenEl, this.el);
 
     /**
-     * Core
-     * @param {object} properties = options defined by user
+     * Toogle sticky
      */
-    Object.prototype.stickyNav = function(properties) {
-        const element = this;
-
-        // Default options
-        const defaults = {
-            stickyClass: 'is-sticky', // {string} sticky class
-            customBreakPoint: false, // {boolean} enable custom breakpoint for navbar
-            breakPointValue: 200, // {number} navbar breakpoint value in pixels
-            extraOffset: 0 // {number} add extra offset from the top
-        };
-
-        if (!element.classList) {
-            throw new Error('Sorry, looks like your browser is too old for this script :(');
+    const toggleSticky = () => {
+      if (!applied) {
+        if (window.pageYOffset >= edge) {
+          addSticky();
         }
-
-        // Extend options
-        for (const property in properties) {
-            defaults[property] = properties[property];
+      } else {
+        if (window.pageYOffset <= edge) {
+          removeSticky();
         }
-        
-        const options = defaults;
-        const hiddenEl = createHiddenElement();
-        let edge = getOffset();
-        let applied = 0;
+      }
+    }
 
-        // Toogle sticky class
-        window.addEventListener('scroll', () => {
-            toggleSticky();
-        });
+    /**
+     * Add sticky class to the element
+     */
+    const addSticky = () => {
+      hiddenEl.style.height = `${this.el.offsetHeight}px`;
+      hiddenEl.style.display = 'block';
+      this.el.classList.add(options.stickyClass);
+      applied = 1;
+    }
 
-        // Update offset and toggle sticky
-        window.addEventListener('resize', () => {
-            removeSticky();
-            edge = getOffset();
-            toggleSticky();
-        });
+    /**
+     * Remove sticky class from the element
+     */
+    const removeSticky = () => {
+      hiddenEl.style.display = 'none';
+      this.el.classList.remove(options.stickyClass);
+      applied = 0;
+    }
 
-        /**
-         * Toogle sticky
-         */
-        function toggleSticky() {
-            if (!applied) {
-                if (window.pageYOffset >= edge) {
-                    addSticky();
-                }
-            } else {
-                if (window.pageYOffset <= edge) {
-                    removeSticky();
-                }
-            }
-        }
+    /**
+     * Get the offset top value of the element relative to the document
+     * @return {number} value = offset value
+     */
+    const getOffset = () => options.customBreakPoint ? options.breakPointValue : this.el.offsetTop + options.extraOffset;
+    let edge = getOffset();
 
-        /**
-         * Add sticky class to the element
-         */
-        function addSticky() {
-            hiddenEl.style.height = `${element.offsetHeight}px`;
-            hiddenEl.style.display = 'block';
-            element.classList.add(options.stickyClass);
-            applied = 1;
-        }
+    // Scroll handler
+    window.addEventListener('scroll', () => {
+      toggleSticky();
+    });
 
-        /**
-         * Remove sticky class from the element
-         */
-        function removeSticky() {
-            hiddenEl.style.display = 'none';
-            element.classList.remove(options.stickyClass);
-            applied = 0;
-        }
+    // Resize handler
+    window.addEventListener('resize', () => {
+      removeSticky();
+      edge = getOffset();
+      toggleSticky();
+    });
+  }
 
-        /**
-         * Get the offset top value of the element relative to the document
-         * @return {number} value = offset value
-         */
-        function getOffset() {
-            return options.customBreakPoint ? options.breakPointValue : element.offsetTop + options.extraOffset;
-        }
-
-        /**
-         * Create and add a hidden element to the DOM
-         * @return {object} hidden = created hidden div
-         */
-        function createHiddenElement() {
-            const hidden = document.createElement('div');
-            hidden.style.display = 'none';
-            element.parentNode.insertBefore(hidden, element);
-
-            return hidden;
-        }
-    };
-
-    window.stickyNav = stickyNav;
-
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = StickyNav;
+  } else {
+    window.StickyNav = StickyNav;
+  }
 })();
